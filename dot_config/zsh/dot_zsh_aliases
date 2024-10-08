@@ -1,0 +1,68 @@
+### personal aliases file ###
+
+
+### colors ###
+
+RC='\033[0m'
+RED='\033[31m'
+YELLOW='\033[33m'
+CYAN='\033[36m'
+GREEN='\033[32m'
+BLUE='\033[34m'
+
+
+### aliases ###
+
+# shell handling
+alias s="exec /usr/bin/zsh"
+alias c="clear"
+
+# general tools
+alias rm="trash -v"
+alias ed="micro"
+
+# monitoring tools
+alias df="df -h -x tmpfs -x squashfs -x devtmpfs -x efivarfs"
+alias extip="curl icanhazip.com"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+alias mem5="ps auxf | sort -nr -k 4 | head -5"
+alias cpu5="ps auxf | sort -nr -k 3 | head -5"
+alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -v '^w'); sudo dhclient -r -v $NIC && sudo dhclient -v $NIC"
+
+# ls
+alias ls="ls -h --color=auto --group-directories-first"
+alias ll="ls -l"
+alias la="ls -la"
+alias lt="tree -C"
+
+# bat
+alias bat='/usr/bin/batcat'
+alias cat='bat'
+
+# apt to nala
+#alias upd="sudo nala update"
+#alias upg="sudo nala update && sudo nala upgrade"
+#alias ins="sudo nala install"
+#alias sea="sudo nala search"
+
+# Colorize grep output (good for log files)
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+# adding flags
+alias df="df -h"                          # human-readable sizes
+alias free="free -m"                      # show sizes in MB
+
+# ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem="ps auxf | sort -nr -k 4"
+alias pscpu="ps auxf | sort -nr -k 3"
+
+# get error messages from journalctl
+alias jctl="sudo journalctl -xb"
+
+
+
+

@@ -1,0 +1,111 @@
+### personal functions file ###
+
+
+### colors ###
+
+RC='\033[0m'
+RED='\033[31m'
+YELLOW='\033[33m'
+CYAN='\033[36m'
+GREEN='\033[32m'
+BLUE='\033[34m'
+
+
+### functions ###
+
+install() {
+
+  printf "%b\n" "${YELLOW}" "### installing... ################################################" "${RC}"
+
+  if [ "$(command -v nala 2>&1)" ]; then
+    printf " %b\n" "${CYAN}" "### ... using nala ###" "${RC}"
+    sudo nala install -v "$1"
+  elif [ "$(command -v apt-get 2>&1)" ]; then
+    printf " %b\n" "${CYAN}" "### ... using apt-get ###" "${RC}"
+    sudo apt-get install -y "$1"
+  elif [ "$(command -v zypper 2>&1)" ]; then
+    printf " %b\n" "${CYAN}" "### ... using zypper ###" "${RC}"
+    sudo zypper install -y "$1"
+  else
+    printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
+  fi
+
+  printf "%b\n" "${GREEN}" "### done #########################################################" "${RC}"
+
+}
+
+update() {
+
+    printf "%b\n" "${YELLOW}" "### updating... ##################################################" "${RC}"
+
+    printf "%b\n" "${BLUE}"   "### apps... ######################################################" "${NC}"
+
+    if [ "$(command -v nala 2>&1)" ]; then
+        printf " %b\n" "${CYAN}" "### ... using nala ###" "${RC}"
+        sudo nala upgrade
+    elif [ "$(command -v apt-get 2>&1)" ]; then
+        printf " %b\n" "${CYAN}" "### ... using apt-get ###" "${RC}"
+        sudo apt-get update && sudo apt-get upgrade
+    elif [ "$(command -v zypper 2>&1)" ]; then
+        printf " %b\n" "${CYAN}" "### ... using zypper ###" "${RC}"
+        sudo zypper refresh && sudo zypper update
+    else
+        printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
+    fi
+
+    printf "%b\n" "${BLUE}"   "### flatpaks... ##################################################" "${NC}"
+
+    flatpak update
+
+    printf "%b\n" "${BLUE}"   "### zinit... #####################################################" "${NC}"
+
+    zinit self-update && zinit update
+
+    printf "%b\n" "${GREEN}"   "### done #########################################################" "${NC}"
+
+}
+
+cheatsh() {
+  # Ask cheat.sh website for details about a Linux command.
+  curl -m 10 "http://cheat.sh/${1}" 2>/dev/null || printf '%s\n' "[ERROR] Something broke"
+}
+
+flocate() {
+  # locate file, but exclude snapshots
+  if [ -z "$1" ]
+  then
+    printf "You need to add a search string!"
+  else
+    locate "$1" | grep -vi .snapshots
+  fi
+}
+
+# ARCHIVE EXTRACTION
+# usage: ex <file>
+ex ()
+{
+  if [ -f "$1" ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf "$1"   ;;
+      *.tar.gz)    tar xzf "$1"   ;;
+      *.bz2)       bunzip2 "$1"   ;;
+      *.rar)       unrar x "$1"   ;;
+      *.gz)        gunzip "$1"    ;;
+      *.tar)       tar xf "$1"    ;;
+      *.tbz2)      tar xjf "$1"   ;;
+      *.tgz)       tar xzf "$1"   ;;
+      *.zip)       unzip "$1"     ;;
+      *.Z)         uncompress "$1";;
+      *.7z)        7z x "$1"      ;;
+      *.deb)       ar x "$1"      ;;
+      *.tar.xz)    tar xf "$1"    ;;
+      *.tar.zst)   unzstd "$1"    ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    printf '..%s..' "This file (" "$1" ") is not a valid one."
+  fi
+}
+
+
+
