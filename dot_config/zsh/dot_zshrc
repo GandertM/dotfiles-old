@@ -1,3 +1,5 @@
+# based on: https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
+
 # Set your path
 PATH="$HOME/.fzf/bin:$HOME/.local/bin:$PATH"
 
