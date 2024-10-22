@@ -262,6 +262,7 @@ alias cmdif='chezmoi diff'
 alias cmapp='chezmoi -v apply'
 alias cmcd='chezmoi cd'
 alias cmupd='chezmoi update'
+alias cmdoc='chezmoi doctor'
 
 # monitoring tools
 alias df="df -h -x tmpfs -x squashfs -x devtmpfs -x efivarfs"
