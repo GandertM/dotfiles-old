@@ -255,13 +255,13 @@ alias gcm='git commit -m "$1"'
 alias gp='git push -u origin main'
 
 # Alias's for chezmoi
-alias czmi='chezmoi init'
-alias czma='chezmoi add'
-alias czme='chezmoi edit'
-alias czmd='chezmoi diff'
-alias czmap='chezmoi -v apply'
-alias czmcd='chezmoi cd'
-alias czmu='chezmoi update'
+alias cmini='chezmoi init'
+alias cmadd='chezmoi add'
+alias cmedi='chezmoi edit'
+alias cmdif='chezmoi diff'
+alias cmapp='chezmoi -v apply'
+alias cmcd='chezmoi cd'
+alias cmupd='chezmoi update'
 
 # monitoring tools
 alias df="df -h -x tmpfs -x squashfs -x devtmpfs -x efivarfs"
