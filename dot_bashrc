@@ -667,7 +667,8 @@ function hb {
 update() {
   echo -e "\n${BLUE}──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────${RC}\n"
   #echo "\033[1;37mUpdate ..." && sudo nala update && sudo nala upgrade
-  echo -e "Update ...\n" && sudo nala update && sudo nala upgrade
+  #echo -e "Update ...\n" && sudo nala update && sudo nala upgrade
+  echo -e "Update ...\n" && sudo nala upgrade
   echo -e "\n${BLUE}──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────${RC}\n"
   echo -e "Flatpak ...\n" && flatpak update
   # echo "Snap ..." && sudo snap refresh
