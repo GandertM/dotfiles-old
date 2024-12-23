@@ -227,7 +227,8 @@ alias countfiles="for t in files links directories; do echo \`find . -type \${t:
 alias checkcommand="type -t"
 
 # Show open ports
-alias openports='netstat -nape --inet'
+#alias openports='netstat -nape --inet'
+alias openports='sudo ss -tulpn'
 
 # Alias's for safe and forced reboots
 alias rebootsafe='sudo shutdown -r now'
