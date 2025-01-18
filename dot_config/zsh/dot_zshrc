@@ -24,7 +24,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Add in snippets
+# Add in snippets (including aliases)
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::colored-man-pages
@@ -66,6 +66,11 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=blue,underline
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
+
+# Fastfetch
+if [ -f /usr/bin/fastfetch ]; then
+	fastfetch
+fi
 
 # Aliases
 [[ -f "$ZDOTDIR"/.zsh_aliases ]] && source "$ZDOTDIR"/.zsh_aliases
