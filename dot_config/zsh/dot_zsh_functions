@@ -36,33 +36,40 @@ install() {
 
 update() {
 
-    printf "%b\n" "${YELLOW}" "### updating... ##################################################" "${RC}"
-
-    printf "%b\n" "${BLUE}"   "### apps... ######################################################" "${NC}"
-
+	# Drawing horizontal blue line
+    print "${BLUE}"
+    print -- ${(l:COLUMNS::─:)}
+    print "${RC}"
+    
     if [ "$(command -v nala 2>&1)" ]; then
-        printf " %b\n" "${CYAN}" "### ... using nala ###" "${RC}"
-        sudo nala upgrade
+    	sudo nala upgrade
     elif [ "$(command -v apt-get 2>&1)" ]; then
-        printf " %b\n" "${CYAN}" "### ... using apt-get ###" "${RC}"
         sudo apt-get update && sudo apt-get upgrade
     elif [ "$(command -v zypper 2>&1)" ]; then
-        printf " %b\n" "${CYAN}" "### ... using zypper ###" "${RC}"
         sudo zypper refresh && sudo zypper update
     else
         printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
     fi
-
-    printf "%b\n" "${BLUE}"   "### flatpaks... ##################################################" "${NC}"
-
+    
+    # Drawing horizontal blue line
+    print "${BLUE}"
+    print -- ${(l:COLUMNS::─:)}
+    print "${RC}"
+    
     flatpak update
-
-    printf "%b\n" "${BLUE}"   "### zinit... #####################################################" "${NC}"
-
+    
+    # Drawing horizontal blue line
+    print "${BLUE}"
+    print -- ${(l:COLUMNS::─:)}
+    print "${RC}"
+    
     zinit self-update && zinit update
 
-    printf "%b\n" "${GREEN}"   "### done #########################################################" "${NC}"
-
+    # Drawing horizontal blue line
+    print "${BLUE}"
+    print -- ${(l:COLUMNS::─:)}
+    print "${RC}"
+        
 }
 
 cheatsh() {

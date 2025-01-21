@@ -63,6 +63,15 @@ alias pscpu="ps auxf | sort -nr -k 3"
 # get error messages from journalctl
 alias jctl="sudo journalctl -xb"
 
-
-
-
+# chezmoi
+alias cmdo="chezmoi doctor"
+alias cmin="chezmoi init"
+alias cmad="chezmoi add"
+alias cmed="chezmoi edit"
+alias cmeda="chezmoi edit --apply"
+alias cmst="chezmoi status"
+alias cmdi="chezmoi diff"
+alias cmap="chezmoi apply"
+alias cmcd="chezmoi cd"
+alias cmup="chezmoi update"
+alias cmfo="chezmoi forget"
