@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".local/share/chezmoi"
+		}
+		{
+			"path": "Projects/postinstall"
+		},
+		{
+			"path": "Projects/postinstall-opensuse"
+		}
+	],
+	"settings": {}
+}
