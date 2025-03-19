@@ -31,13 +31,91 @@ alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -
 
 # ls
 alias ls="ls -h --color=auto --group-directories-first"
-alias ll="ls -l"
-alias la="ls -la"
-alias lt="tree -C"
+#alias ll="ls -l"
+#alias la="ls -la"
+#alias lt="tree -C"
+
+##################
+# aliases eza
+##################
+
+# ----------------
+# base
+# ----------------
+alias ll="eza -hl --icons --group-directories-first --total-size --color=always"
+
+# ----------------
+# all entries
+# ----------------
+alias la="ll -a"
+
+alias las="la --sort=size"
+alias lam="la --sort=modified"
+alias lac="la --sort=created"
+
+# ----------------
+# only files
+# ----------------
+alias lf="ll -f"
+
+alias lfs="lf --sort=size"
+alias lfm="lf --sort=modified"
+alias lfc="lf --sort=created"
+
+# ----------------
+# only directories
+# ----------------
+alias ld="ll -D"
+
+alias lds="ld --sort=size"
+alias ldm="ld --sort=modified"
+alias ldc="ld --sort=created"
+
+# ----------------
+# only hidden
+# ----------------
+alias lh="ll -dl .*"
+
+alias lhs="lh --sort=size"
+alias lhm="lh --sort=modified"
+alias lhc="lh --sort=created"
+
+# ----------------
+# only executables
+# ----------------
+alias le="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --color=always {} +"
+
+alias les="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --color=always --sort=size {} +"
+alias lem="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --color=always --sort=modified {} +"
+alias lec="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --color=always --sort=created {} +"
+
+# ----------------
+# view tree
+# ----------------
+alias lt="eza -lahT --icons --total-size --color=always --group-directories-first"
+
+# max depth
+alias lts="lt --sort=size"
+alias ltm="lt --sort=modified"
+alias ltc="lt --sort=created"
+
+# max depth 2
+alias lt2="lt --level=2"
+alias lts2="lt2 --sort=size"
+alias ltm2="lt2 --sort=modified"
+alias ltc2="lt2 --sort=created"
+
+# max depth 3
+alias lt3="lt --level=3"
+alias lts3="lt3 --sort=size"
+alias ltm3="lt3 --sort=modified"
+alias ltc3="lt3 --sort=created"
+
+# ---------------- end of eza
 
 # bat
-alias bat='/usr/bin/batcat'
-alias cat='bat'
+#alias bat='/usr/bin/batcat'
+#alias cat='bat'
 
 # apt to nala
 #alias upd="sudo nala update"
