@@ -30,7 +30,7 @@ alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -v '^w'); sudo dhclient -r -v $NIC && sudo dhclient -v $NIC"
 
 # ls
-alias ls="ls -h --color=auto --group-directories-first"
+#alias ls="ls -h --color=auto --group-directories-first"
 #alias ll="ls -l"
 #alias la="ls -la"
 #alias lt="tree -C"
@@ -42,6 +42,7 @@ alias ls="ls -h --color=auto --group-directories-first"
 # ----------------
 # base
 # ----------------
+alias ls="eza --icons --total-size --color=always --group-directories-first"
 alias ll="eza -hl --icons --group-directories-first --total-size --group --color=always"
 
 # ----------------
