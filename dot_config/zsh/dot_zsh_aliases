@@ -18,16 +18,36 @@ alias s="exec /usr/bin/zsh"
 alias c="clear"
 
 # general tools
+alias cp="cp -i"
+alias mv="mv -i"
 alias rm="trash -v"
 alias ed="micro"
+alias mkdir="mkdir -p"
+alias ps="ps auxf"
+alias ping="ping -c 6"
 
 # monitoring tools
 alias df="df -h -x tmpfs -x squashfs -x devtmpfs -x efivarfs"
-alias extip="curl icanhazip.com"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 alias mem5="ps auxf | sort -nr -k 4 | head -5"
 alias cpu5="ps auxf | sort -nr -k 3 | head -5"
 alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -v '^w'); sudo dhclient -r -v $NIC && sudo dhclient -v $NIC"
+alias ipext="curl icanhazip.com"
+alias openports='sudo ss -tulpn'
+
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
+
+# Search command line history
+alias h="history | grep "
+
+# Search files in the current folder
+alias f="find . | grep "
 
 # ls
 #alias ls="ls -h --color=auto --group-directories-first"
