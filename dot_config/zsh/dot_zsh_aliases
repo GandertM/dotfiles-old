@@ -42,7 +42,7 @@ alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -
 # ----------------
 # base
 # ----------------
-alias ls="eza --icons --total-size --color=always --group-directories-first"
+alias ls="eza --icons --group-directories-first --total-size --color=always"
 alias ll="eza -hl --icons --group-directories-first --total-size --group --color=always"
 
 # ----------------
