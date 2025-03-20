@@ -42,15 +42,15 @@ alias ipreset="NIC=$(netstat -r | awk '/default/ {print $NF}' | sort -u | grep -
 # ----------------
 # base
 # ----------------
-alias ls="eza --icons --group-directories-first --total-size --group --color=always"
-alias ll="eza -hl --icons --group-directories-first --total-size --group --color=always"
+alias ls="eza --icons --group-directories-first --group --color=always"
+alias ll="eza -hl --icons --group-directories-first --group --color=always"
 
 # ----------------
 # all entries
 # ----------------
 alias la="ll -a"
 
-alias las="la --sort=size"
+alias las="la --total-size --sort=size"
 alias lam="la --sort=modified"
 alias lac="la --sort=created"
 
@@ -59,7 +59,7 @@ alias lac="la --sort=created"
 # ----------------
 alias lf="ll -f"
 
-alias lfs="lf --sort=size"
+alias lfs="lf --total-size --sort=size"
 alias lfm="lf --sort=modified"
 alias lfc="lf --sort=created"
 
@@ -68,7 +68,7 @@ alias lfc="lf --sort=created"
 # ----------------
 alias ld="ll -D"
 
-alias lds="ld --sort=size"
+alias lds="ld --total-size --sort=size"
 alias ldm="ld --sort=modified"
 alias ldc="ld --sort=created"
 
@@ -77,38 +77,38 @@ alias ldc="ld --sort=created"
 # ----------------
 alias lh="ll -dl .*"
 
-alias lhs="lh --sort=size"
+alias lhs="lh --total-size --sort=size"
 alias lhm="lh --sort=modified"
 alias lhc="lh --sort=created"
 
 # ----------------
 # only executables
 # ----------------
-alias le="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --group --color=always {} +"
+alias le="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always {} +"
 
-alias les="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --group --color=always --sort=size {} +"
-alias lem="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --group --color=always --sort=modified {} +"
-alias lec="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --total-size --group --color=always --sort=created {} +"
+alias les="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=size {} +"
+alias lem="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=modified {} +"
+alias lec="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=created {} +"
 
 # ----------------
 # view tree
 # ----------------
-alias lt="eza -lahT --icons --total-size --color=always --group-directories-first --group"
+alias lt="eza -lahT --icons --color=always --group-directories-first --group"
 
 # max depth
-alias lts="lt --sort=size"
+alias lts="lt --total-size --sort=size"
 alias ltm="lt --sort=modified"
 alias ltc="lt --sort=created"
 
 # max depth 2
 alias lt2="lt --level=2"
-alias lts2="lt2 --sort=size"
+alias lts2="lt2 --total-size --sort=size"
 alias ltm2="lt2 --sort=modified"
 alias ltc2="lt2 --sort=created"
 
 # max depth 3
 alias lt3="lt --level=3"
-alias lts3="lt3 --sort=size"
+alias lts3="lt3 --total-size --sort=size"
 alias ltm3="lt3 --sort=modified"
 alias ltc3="lt3 --sort=created"
 
