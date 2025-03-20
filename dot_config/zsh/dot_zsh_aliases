@@ -142,7 +142,7 @@ alias pscpu="ps auxf | sort -nr -k 3"
 # get error messages from journalctl
 alias jctl="sudo journalctl -xb"
 
-# chezmoi
+# Alias's for chezmoi
 alias cmdoc="chezmoi doctor"
 alias cmini="chezmoi init"
 alias cmadd="chezmoi add"
@@ -150,7 +150,12 @@ alias cmedi="chezmoi edit"
 alias cmeda="chezmoi edit --apply"
 alias cmsta="chezmoi status"
 alias cmdif="chezmoi diff"
-alias cmapp="chezmoi apply"
+alias cmapp="chezmoi -v apply"
 alias cmcd="chezmoi cd"
 alias cmupd="chezmoi update"
 alias cmfor="chezmoi forget"
+
+# Alias's for git
+alias ga='git add'
+alias gcm='git commit -m "$1"'
+alias gp='git push -u origin main'
