@@ -136,7 +136,7 @@ alias ltc3="lt3 --sort=created"
 
 # bat
 #alias bat='/usr/bin/batcat'
-#alias cat='bat'
+alias cat="/usr/bin/bat --color always"
 
 # apt to nala
 #alias upd="sudo nala update"
