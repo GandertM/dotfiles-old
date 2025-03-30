@@ -11,6 +11,14 @@ GREEN='\033[32m'
 BLUE='\033[34m'
 
 
+### lines ###
+
+line_blue() {
+  # Drawing horizontal blue line
+  print "${BLUE}"; print -- ${(l:COLUMNS::─:)}; print "${RC}"
+}
+
+
 ### functions ###
 
 install() {
@@ -36,39 +44,27 @@ install() {
 
 update() {
 
-	# Drawing horizontal blue line
-    print "${BLUE}"
-    print -- ${(l:COLUMNS::─:)}
-    print "${RC}"
+	line_blue
     
-    if [ "$(command -v nala 2>&1)" ]; then
-    	sudo nala upgrade
-    elif [ "$(command -v apt-get 2>&1)" ]; then
-        sudo apt-get update && sudo apt-get upgrade
-    elif [ "$(command -v zypper 2>&1)" ]; then
-        sudo zypper refresh && sudo zypper update
-    else
-        printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
-    fi
+  if [ "$(command -v nala 2>&1)" ]; then
+    sudo nala upgrade
+  elif [ "$(command -v apt-get 2>&1)" ]; then
+    sudo apt-get update && sudo apt-get upgrade
+  elif [ "$(command -v zypper 2>&1)" ]; then
+    sudo zypper refresh && sudo zypper update
+  else
+    printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
+  fi
     
-    # Drawing horizontal blue line
-    print "${BLUE}"
-    print -- ${(l:COLUMNS::─:)}
-    print "${RC}"
+  line_blue
     
-    flatpak update
+  flatpak update
     
-    # Drawing horizontal blue line
-    print "${BLUE}"
-    print -- ${(l:COLUMNS::─:)}
-    print "${RC}"
+  line_blue
     
-    zinit self-update && zinit update
+  zinit self-update && zinit update
 
-    # Drawing horizontal blue line
-    print "${BLUE}"
-    print -- ${(l:COLUMNS::─:)}
-    print "${RC}"
+  line_blue
         
 }
 
