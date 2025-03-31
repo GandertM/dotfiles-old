@@ -1,6 +1,5 @@
 ### personal functions file ###
 
-
 ### colors ###
 
 RC='\033[0m'
@@ -10,14 +9,12 @@ CYAN='\033[36m'
 GREEN='\033[32m'
 BLUE='\033[34m'
 
-
 ### lines ###
 
 line_blue() {
   # Drawing horizontal blue line
   print "${BLUE}"; print -- ${(l:COLUMNS::─:)}; print "${RC}"
 }
-
 
 ### functions ###
 
@@ -42,9 +39,26 @@ install() {
 
 }
 
+# Check if package is installed
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+update_system() {
+  
+  command_exists nala && sudo nala upgrade || 
+  
+  command_exists apt-get && sudo apt-get update && sudo apt-get upgrade ||
+
+  command_exists zypper && sudo zypper refresh && sudo zypper update ||
+
+  printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
+  
+}
+
 update() {
 
-	line_blue
+  line_blue
     
   if [ "$(command -v nala 2>&1)" ]; then
     sudo nala upgrade
