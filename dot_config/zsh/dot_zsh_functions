@@ -60,7 +60,7 @@ update() {
 
   line_blue
 
-  echo "UPDATE SYSTEM"
+  printf "%b\n" "${RED}" "UPDATE SYSTEM" "${RC}"
 
   update_system  
   
@@ -76,13 +76,13 @@ update() {
     
   line_blue
   
-  echo "UPDATE FLATPAK"
+  printf "%b\n" "${RED}" echo "UPDATE FLATPAK" "${RC}"
 
   flatpak update
     
   line_blue
   
-  echo "UPDATE ZINIT"
+  printf "%b\n" "${RED}" echo "UPDATE ZINIT" "${RC}"
 
   zinit self-update && zinit update
 
