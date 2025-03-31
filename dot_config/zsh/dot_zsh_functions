@@ -59,23 +59,31 @@ update_system() {
 update() {
 
   line_blue
-    
-  if [ "$(command -v nala 2>&1)" ]; then
-    sudo nala upgrade
-  elif [ "$(command -v apt-get 2>&1)" ]; then
-    sudo apt-get update && sudo apt-get upgrade
-  elif [ "$(command -v zypper 2>&1)" ]; then
-    sudo zypper refresh && sudo zypper update
-  else
-    printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
-  fi
+
+  echo "UPDATE SYSTEM"
+
+  update_system  
+  
+  #if [ "$(command -v nala 2>&1)" ]; then
+  #  sudo nala upgrade
+  #elif [ "$(command -v apt-get 2>&1)" ]; then
+  #  sudo apt-get update && sudo apt-get upgrade
+  #elif [ "$(command -v zypper 2>&1)" ]; then
+  #  sudo zypper refresh && sudo zypper update
+  #else
+  #  printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
+  #fi
     
   line_blue
-    
+  
+  echo "UPDATE FLATPAK"
+
   flatpak update
     
   line_blue
-    
+  
+  echo "UPDATE ZINIT"
+
   zinit self-update && zinit update
 
   line_blue
