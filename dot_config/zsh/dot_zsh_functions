@@ -58,6 +58,19 @@ update_system() {
 
 update() {
 
+  # define timestamp file
+  STAMP_FILE="$HOME/.ts_update.ts"
+  # use interval of 1 week
+  INTERVAL="604800"   
+
+  # if timestamp file does not exist, create it
+  [[ ! -f $STAMP_FILE ]] && touch $STAMP_FILE
+
+  # determine times and delta
+  STAMP="$(date -r $STAMP_FILE +%s 2>/dev/null)"
+  NOW="$(date +%s 2>/dev/null)"
+  DELTA=$(($NOW-$STAMP))
+
   line_blue
 
   printf "%b\n" "${RED}" "UPDATE SYSTEM" "${RC}"
@@ -72,11 +85,15 @@ update() {
     
   line_blue
   
-  printf "%b\n" "${RED}" "UPDATE ZINIT" "${RC}"
+  if [ $DELTA -ge $INTERVAL ]; then
+    
+    printf "%b\n" "${RED}" "UPDATE ZINIT" "${RC}"
 
-  zinit self-update && zinit update
+    zinit self-update && zinit update
 
-  line_blue
+    line_blue
+    
+  fi
         
 }
 
