@@ -60,11 +60,12 @@ update() {
 
   # define timestamp file
   STAMP_FILE="$HOME/.ts_update.ts"
+  
   # use interval of 1 week
   INTERVAL="604800"   
 
   # if timestamp file does not exist, create it
-  [[ ! -f $STAMP_FILE ]] && touch $STAMP_FILE
+  [[ ! -f $STAMP_FILE ]] && touch $STAMP_FILE && echo 'touched'
 
   # determine times and delta
   STAMP="$(date -r $STAMP_FILE +%s 2>/dev/null)"
@@ -85,6 +86,7 @@ update() {
     
   line_blue
   
+  # if time has passed, execute
   if [ $DELTA -ge $INTERVAL ]; then
     
     printf "%b\n" "${RED}" "UPDATE ZINIT" "${RC}"
@@ -92,7 +94,7 @@ update() {
     zinit self-update && zinit update
 
     line_blue
-    
+
   fi
         
 }
