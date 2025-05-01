@@ -65,7 +65,7 @@ update() {
   INTERVAL="604800"   
 
   # if timestamp file does not exist, create it
-  [[ ! -f $STAMP_FILE ]] && touch $STAMP_FILE && echo 'touched'
+  [[ ! -f $STAMP_FILE ]] && touch $STAMP_FILE
 
   # determine times and delta
   STAMP="$(date -r $STAMP_FILE +%s 2>/dev/null)"
