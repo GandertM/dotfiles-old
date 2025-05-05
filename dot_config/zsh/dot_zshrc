@@ -82,7 +82,7 @@ fi
 eval "$(fzf --zsh)"              # option --zsh only works in 0.48.0 or later (add fzf to PATH)
 eval "$(zoxide init zsh)"        # after install from https://github.com/ajeetdsouza/zoxide
 
-# Source aliases and functions for every new prompt
+# Source aliases and functions for every new prompt or after every command
 precmd() {
    [[ -f "$ZDOTDIR"/.zsh_aliases ]] && source "$ZDOTDIR"/.zsh_aliases
    [[ -f "$ZDOTDIR"/.zsh_functions ]] && source "$ZDOTDIR"/.zsh_functions
