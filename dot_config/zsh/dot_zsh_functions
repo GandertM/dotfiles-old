@@ -95,6 +95,8 @@ update() {
 
     line_blue
 
+    touch $STAMP_FILE
+
   fi
         
 }
