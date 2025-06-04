@@ -24,7 +24,7 @@ alias rm="trash -v"
 alias ed="micro"
 alias mkdir="mkdir -p"
 alias ps="ps auxf"
-alias ping="ping -c 6"
+alias ping="ping -c 5"
 
 # monitoring tools
 alias df="df -h -x tmpfs -x squashfs -x devtmpfs -x efivarfs"
@@ -70,7 +70,7 @@ alias ll="eza -hl --icons --group-directories-first --group --color=always"
 # ----------------
 alias la="ll -a"
 
-alias las="la --total-size --sort=size"
+alias las="las"
 alias lam="la --sort=modified"
 alias lac="la --sort=created"
 
