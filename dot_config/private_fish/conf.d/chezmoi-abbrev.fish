@@ -1,0 +1,12 @@
+# for chezmoi
+abbr -a cmdoc 'chezmoi doctor'
+abbr -a cmini 'chezmoi init'
+abbr -a cmadd 'chezmoi add'
+abbr -a cmedi 'chezmoi edit'
+abbr -a cmeda 'chezmoi edit --apply'
+abbr -a cmsta 'chezmoi status'
+abbr -a cmdif 'chezmoi diff'
+abbr -a cmapp 'chezmoi -v apply'
+abbr -a cmcd  'chezmoi cd'
+abbr -a cmupd 'chezmoi update'
+abbr -a cmfor 'chezmoi forget'
