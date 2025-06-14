@@ -9,3 +9,6 @@ end
 
 # fish prompt with startship
 starship init fish | source
+
+# Set up fzf key bindings
+fzf --fish | source
