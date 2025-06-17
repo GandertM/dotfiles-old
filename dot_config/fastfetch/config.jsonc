@@ -67,7 +67,8 @@
             "format": "├────────────────── \u001b[1mNetwork Information\u001b[0m ───────────────────┤"
         },
         {
-            "type": "LocalIp",
+            "type": "localip",
+            "compact": true,
             "key": "  󱄄"
         },
         {
