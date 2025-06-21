@@ -5,7 +5,7 @@ end
 # fish greeting with fastfetch
 function fish_greeting
     fastfetch
-    echo 'CTRL-T - Paste the selected files and directories'
+    echo "CTRL-T - Paste the selected files and directories"
 end
 
 # fish prompt with startship
