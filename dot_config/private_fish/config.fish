@@ -6,7 +6,7 @@ end
 function fish_greeting
     fastfetch
     echo
-    echo Bindings fzf
+    echo Key-bindings for fzf
     echo -------------------------------------------------
     echo CTRL-T - Paste the selected files and directories
     echo CTRL-R - Paste the selected command from history
