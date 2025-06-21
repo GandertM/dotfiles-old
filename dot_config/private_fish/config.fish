@@ -9,7 +9,6 @@ function fish_greeting
     echo CTRL-T - Paste the selected files and directories
     echo CTRL-R - Paste the selected command from history
     echo ALT-C - cd into the selected directory
-    echo
 end
 
 # fish prompt with startship
