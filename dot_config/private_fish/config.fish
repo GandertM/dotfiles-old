@@ -16,7 +16,7 @@ function fish_greeting
     echo -------------------------------------------------
     echo CTRL-t - Paste the selected files and directories
     echo CTRL-r - Paste the selected command from history
-    echo ALT-C - cd into the selected directory
+    echo ALT-c  - cd into the selected directory
     echo -------------------------------------------------
 end
 
@@ -26,8 +26,7 @@ set FZF_DEFAULT_OPTS "--layout=reverse --border=bold --border=rounded --margin=5
 # fish prompt with startship
 starship init fish | source
 
-# Set up fzf key bindings
-# Enables the follwoing keybindings:
+# Enables the following keybindings for FZF:
 # CTRL-t - fzf select  (Paste the selected files and directories)
 # CTRL-r - fzf history (Paste the selected command from history)
 # ALT-c  - fzf cd      (cd into the selected directory)
