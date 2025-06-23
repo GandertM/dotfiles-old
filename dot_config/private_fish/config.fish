@@ -21,7 +21,7 @@ function fish_greeting
 end
 
 # SET FZF DEFAULTS
-set FZF_DEFAULT_OPTS "--layout=reverse --border=bold --border=rounded --margin=5% --color=dark"
+set FZF_DEFAULT_OPTS "--layout=reverse --border=bold --border=rounded --margin=2% --color=dark"
 
 # fish prompt with startship
 starship init fish | source
