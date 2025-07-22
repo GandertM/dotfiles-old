@@ -70,7 +70,7 @@ alias ll="eza -hl --icons --group-directories-first --group --color=always"
 # ----------------
 alias la="ll -a"
 
-alias las="las"
+alias las="la --total-size --sort=size"
 alias lam="la --sort=modified"
 alias lac="la --sort=created"
 
@@ -104,11 +104,11 @@ alias lhc="lh --sort=created"
 # ----------------
 # only executables
 # ----------------
-alias le="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always {} +"
+alias lx="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always {} +"
 
-alias les="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=size {} +"
-alias lem="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=modified {} +"
-alias lec="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=created {} +"
+alias lxs="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=size {} +"
+alias lxm="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=modified {} +"
+alias lxc="find . -maxdepth 1 -type f -executable -exec eza -hl --icons --group-directories-first --group --color=always --sort=created {} +"
 
 # ----------------
 # view tree
