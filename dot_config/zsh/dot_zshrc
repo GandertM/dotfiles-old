@@ -72,6 +72,17 @@ if [ -f /usr/bin/fastfetch ]; then
 	fastfetch
 fi
 
+# Fzf - reminder
+if [ -f /usr/bin/fzf ]; then
+   echo
+      echo Key-bindings for fzf
+      echo -------------------------------------------------
+      echo CTRL-t - Paste the selected files and directories
+      echo CTRL-r - Paste the selected command from history
+      echo ALT-c  - cd into the selected directory
+      echo -------------------------------------------------
+fi
+
 # Aliases
 [[ -f "$ZDOTDIR"/.zsh_aliases ]] && source "$ZDOTDIR"/.zsh_aliases
 
