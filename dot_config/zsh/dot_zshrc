@@ -74,13 +74,14 @@ fi
 
 # Fzf - reminder
 if [ -f /usr/bin/fzf ]; then
-   echo
-      echo Key-bindings for fzf
-      echo -------------------------------------------------
-      echo CTRL-t - Paste the selected files and directories
-      echo CTRL-r - Paste the selected command from history
-      echo ALT-c  - cd into the selected directory
-      echo -------------------------------------------------
+   echo ''
+   echo '---------------------------------------------------'
+   echo ' Key-bindings for fzf '
+   echo '---------------------------------------------------'
+   echo ' ALT-c  - cd into the selected directory '
+   echo ' CTRL-t - Paste the selected files and directories '
+   echo ' CTRL-r - Paste the selected command from history '
+   echo '---------------------------------------------------'
 fi
 
 # Aliases
