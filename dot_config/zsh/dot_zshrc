@@ -85,10 +85,10 @@ if [ -f /usr/bin/fzf ]; then
 fi
 
 # Aliases
-[[ -f "$ZDOTDIR"/.zsh_aliases ]] && source "$ZDOTDIR"/.zsh_aliases
+#[[ -f "$ZDOTDIR"/.zsh_aliases ]] && source "$ZDOTDIR"/.zsh_aliases -- see precmd()
 
 # Functions
-[[ -f "$ZDOTDIR"/.zsh_functions ]] && source "$ZDOTDIR"/.zsh_functions
+#[[ -f "$ZDOTDIR"/.zsh_functions ]] && source "$ZDOTDIR"/.zsh_functions -- see precmd()
 
 # Shell integrations
 eval "$(fzf --zsh)"                 # option --zsh only works in 0.48.0 or later (add fzf to PATH)

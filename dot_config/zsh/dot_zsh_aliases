@@ -50,7 +50,7 @@ alias h="history | grep "
 alias f="find . | grep "
 
 # ls
-#alias ls="ls -h --color=auto --group-directories-first"
+alias ls="ls -h --color=auto --group-directories-first"
 #alias ll="ls -l"
 #alias la="ls -la"
 #alias lt="tree -C"
@@ -62,7 +62,7 @@ alias f="find . | grep "
 # ----------------
 # base
 # ----------------
-alias ls="eza --icons --group-directories-first --group --color=always"
+alias l="eza --icons --group-directories-first --group --color=always"
 alias ll="eza -hl --icons --group-directories-first --group --color=always"
 
 # ----------------
