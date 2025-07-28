@@ -1,5 +1,6 @@
 ### personal functions file ###
 
+
 ### colors ###
 
 RC='\033[0m'
@@ -9,12 +10,32 @@ CYAN='\033[36m'
 GREEN='\033[32m'
 BLUE='\033[34m'
 
+
 ### lines ###
 
 line_blue() {
-  # Drawing horizontal blue line
+  # Drawing horizontal blue line in full width
   print "${BLUE}"; print -- ${(l:COLUMNS::─:)}; print "${RC}"
 }
+
+
+### texts ###
+
+text_yellow() {
+  # Print a text ($1) yellow
+  printf "%b" "${YELLOW}" "$1" "${RC}\n\n"
+}
+
+text_cyan() {
+  # Print a text ($1) yellow
+  printf "%b" "${CYAN}" "$1" "${RC}\n\n"
+}
+
+text_red() {
+  # Print a text ($1) yellow
+  printf "%b" "${RED}" "$1" "${RC}\n\n"
+}
+
 
 ### functions ###
 
@@ -39,10 +60,12 @@ install() {
 
 }
 
+
 # Check if package is installed
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
+
 
 update_system() {
   
@@ -52,9 +75,9 @@ update_system() {
 
   command_exists zypper && sudo zypper refresh && sudo zypper update ||
 
-  printf "%b\n" "${RED}" "Can't find a supported package manager" "${RC}"
-  
+  text_red "Can't find a supported package manager"
 }
+
 
 update() {
 
@@ -74,13 +97,13 @@ update() {
 
   line_blue
 
-  printf "%b" "${RED}" "UPDATE SYSTEM" "${RC}\n\n"
+  text_cyan "UPDATE SYSTEM"
 
   update_system  
   
   line_blue
   
-  printf "%b" "${RED}" "UPDATE FLATPAK" "${RC}\n\n"
+  text_cyan "UPDATE FLATPAK"
 
   flatpak update
     
@@ -89,7 +112,7 @@ update() {
   # if time has passed, execute
   if [ $DELTA -ge $INTERVAL ]; then
     
-    printf "%b" "${RED}" "UPDATE ZINIT" "${RC}\n\n"
+    text_cyan "UPDATE ZINIT"
 
     zinit self-update && zinit update
 
@@ -101,10 +124,12 @@ update() {
         
 }
 
+
 cheatsh() {
   # Ask cheat.sh website for details about a Linux command.
   curl -m 10 "http://cheat.sh/${1}" 2>/dev/null || printf '%s\n' "[ERROR] Something broke"
 }
+
 
 flocate() {
   # locate file, but exclude snapshots
@@ -115,6 +140,7 @@ flocate() {
     locate "$1" | grep -vi .snapshots
   fi
 }
+
 
 # ARCHIVE EXTRACTION
 # usage: ex <file>
@@ -144,4 +170,6 @@ ex ()
 }
 
 
-
+path() {
+  echo "$PATH" | tr ":" "\n" | nl
+}
