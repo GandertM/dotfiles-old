@@ -74,13 +74,14 @@ update() {
 
   line_blue
 
-  printf "%b\n" "${RED}" "UPDATE SYSTEM" "${RC}"
+  #printf "%b\n" "${RED}" "UPDATE SYSTEM" "${RC}"
+  printf "%b" "${RED}" "UPDATE SYSTEM" "${RC}\n\n"
 
   update_system  
   
   line_blue
   
-  printf "%b\n" "${RED}" "UPDATE FLATPAK" "${RC}"
+  printf "%b" "${RED}" "UPDATE FLATPAK" "${RC}\n\n"
 
   flatpak update
     
@@ -89,7 +90,7 @@ update() {
   # if time has passed, execute
   if [ $DELTA -ge $INTERVAL ]; then
     
-    printf "%b\n" "${RED}" "UPDATE ZINIT" "${RC}"
+    printf "%b" "${RED}" "UPDATE ZINIT" "${RC}\n\n"
 
     zinit self-update && zinit update
 
