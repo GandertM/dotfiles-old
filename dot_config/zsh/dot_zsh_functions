@@ -74,7 +74,6 @@ update() {
 
   line_blue
 
-  #printf "%b\n" "${RED}" "UPDATE SYSTEM" "${RC}"
   printf "%b" "${RED}" "UPDATE SYSTEM" "${RC}\n\n"
 
   update_system  
