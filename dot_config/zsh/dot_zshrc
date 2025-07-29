@@ -1,7 +1,26 @@
 # based on: https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
 
+# To avoid duplicates in $PATH
+typeset -aU path
+
+# Function to pre-append the directory to the path array.
+pre_append_to_path() {
+   local dir="$1"
+   [[ -d "$dir" ]] && path=("$dir" $path)
+}
+
+# Function to append the directory to the path array.
+append_to_path() {
+   local dir="$1"
+   [[ -d "$dir" ]] && path+=("$dir")
+}
+
 # Set your path
-PATH="$HOME/.fzf/bin:$HOME/.local/bin:$PATH"
+pre_append_to_path "unknown"
+append_to_path "$HOME/Projects"
+
+# export the PATH variable to make it available to child processes
+export PATH
 
 # Set my editor
 export EDITOR=/usr/bin/micro
@@ -10,7 +29,7 @@ export EDITOR=/usr/bin/micro
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
+if [[ ! -d "$ZINIT_HOME" ]]; then
    mkdir -p "$(dirname $ZINIT_HOME)"
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
@@ -42,7 +61,7 @@ bindkey '^n' history-search-forward   # ctrl-n : search history forward (n = nex
 bindkey '^[w' kill-region             # alt-w  : kill from the cursor to the mark
 
 # History
-HISTSIZE=250000
+HISTSIZE=100000
 HISTFILE=$ZDOTDIR/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -68,12 +87,10 @@ ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
 
 # Fastfetch
-if [ -f /usr/bin/fastfetch ]; then
-	fastfetch
-fi
+[[ -f /usr/bin/fastfetch ]] && fastfetch
 
 # Fzf - reminder
-if [ -f /usr/bin/fzf ]; then
+if [[ -f /usr/bin/fzf ]]; then
    echo ''
    echo '---------------------------------------------------'
    echo ' Key-bindings for fzf '
