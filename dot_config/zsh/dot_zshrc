@@ -87,10 +87,12 @@ ZSH_HIGHLIGHT_STYLES[precommand]=fg=blue,underline
 ZSH_HIGHLIGHT_STYLES[arg0]=fg=blue
 
 # Fastfetch
-[[ -f /usr/bin/fastfetch ]] && fastfetch
+if [ -f /usr/bin/fastfetch ]; then
+	fastfetch
+fi
 
 # Fzf - reminder
-if [[ -f /usr/bin/fzf ]]; then
+if [ -f /usr/bin/fzf ]; then
    echo ''
    echo '---------------------------------------------------'
    echo ' Key-bindings for fzf '
