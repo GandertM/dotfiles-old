@@ -16,7 +16,7 @@ append_to_path() {
 }
 
 # Set your path
-pre_append_to_path "$HOME/.fzf"
+pre_append_to_path "$HOME/.fzf/bin"
 append_to_path "$HOME/Projects"
 
 # export the PATH variable to make it available to child processes
