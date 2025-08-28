@@ -1,2 +1,2 @@
 # dotfiles
-All my config files
+All my config files managed by chezmoi
